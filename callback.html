@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAuth2 Redirect</title>
+</head>
+<body>
+  <p>Authentication successful. You may close this window.</p>
+  <script>
+    // Grab the token from the URL hash
+    const token = new URLSearchParams(window.location.hash.slice(1)).get('access_token');
+    if (token) {
+      // Store it or relay it to your extension via messaging
+      localStorage.setItem('da_token', token);
+      window.close();
+    }
+  </script>
+</body>
+</html>
